@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Youtube Downloader</title>
+    </head>
+    <body>
+        <h1>Site para baixar videos/musicas do youtube.</h1>
+        <p>Esse site não tem o intuito de ganhar dinheiro eu so fiz ele pra testar minhas habilidades com python/flask e de praxe conseguir baixar alguns videos do youtube.</p>
+        <p>Tendo dito isso, use o site para seu mais bel prazer, divirta-se baixando videos e musicas do youtube :).</p>
+
+        <form action="/result" method="POST">
+            <center> 
+                {% if URL and TYPE in ["mp3", "mp4"] %}
+                    <h3 style="color:green;">Finish downloading {{video_title}} of type {{TYPE}}</h3>
+                    <a href="{{ url_for('.download_file') }}">Download media</a>
+                {% endif %}
+
+            </center>
+            <label>Digite a URL do video aqui: </label>
+            <input type="text" name="URL" id="URL">
+            <label>Digite o tipo do vídeo aqui(mp3 ou mp4): </label>
+            <input type="text" name="type" id="type">
+            <input type="submit" name="submit" id="" value="Baixar">
+        </form>
+    </body>
+</html>
